@@ -2,10 +2,11 @@ package opnsense
 
 // Config represents the configuration for the UniFi API.
 type Config struct {
-	Host          string `env:"OPNSENSE_HOST,notEmpty"`
-	Key           string `env:"OPNSENSE_API_KEY,notEmpty"`
-	Secret        string `env:"OPNSENSE_API_SECRET,notEmpty"`
-	SkipTLSVerify bool   `env:"OPNSENSE_SKIP_TLS_VERIFY" envDefault:"true"`
+	Host              string            `env:"OPNSENSE_HOST,notEmpty"`
+	Key               string            `env:"OPNSENSE_API_KEY,notEmpty"`
+	Secret            string            `env:"OPNSENSE_API_SECRET,notEmpty"`
+	SkipTLSVerify     bool              `env:"OPNSENSE_SKIP_TLS_VERIFY" envDefault:"true"`
+	IngressClassMap   map[string]string `env:"INGRESS_CLASS_MAPPING" envDefault:""`
 }
 
 // DNSRecord represents a DNS record in the Opnsense Unbound API.

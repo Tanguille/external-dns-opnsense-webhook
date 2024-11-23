@@ -31,3 +31,20 @@ func EmbellishUnboundType(unboundType string) string {
 	}
 	return unboundType
 }
+
+func ParseIngressClassMapping(mapping string) map[string]string {
+	result := make(map[string]string)
+	if mapping == "" {
+		return result
+	}
+
+	pairs := strings.Split(mapping, ",")
+	for _, pair := range pairs {
+		kv := strings.Split(pair, "=")
+		if len(kv) == 2 {
+			result[strings.TrimSpace(kv[0])] = strings.TrimSpace(kv[1])
+		}
+	}
+
+	return result
+}
