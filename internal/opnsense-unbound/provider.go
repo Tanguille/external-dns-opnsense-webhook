@@ -91,8 +91,8 @@ func (p *Provider) ApplyChanges(ctx context.Context, changes *plan.Changes) erro
 }
 
 // GetDomainFilter returns the domain filter for the provider.
-func (p *Provider) GetDomainFilter() endpoint.DomainFilter {
-	return p.domainFilter
+func (p *Provider) GetDomainFilter() endpoint.DomainFilterInterface {
+    return p.domainFilter
 }
 
 // Add this new method to handle CNAME to A record conversion
